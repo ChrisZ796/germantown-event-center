@@ -1,0 +1,23 @@
+.container > div.directory{
+  grid-area: feed;
+  display: flex;
+  flex-direction: column;
+  background-color: #e8e8e8;
+  height: 100%;
+  overflow-y: auto;
+  color:black;
+  padding-left: 1vw;
+  padding-right: 1vw;
+}
+
+.directory{
+ grid-area: feed;
+  display: flex;
+  flex-direction: column;
+  background-color: #e8e8e8;
+  height: 100%;
+  overflow-y: auto;
+  color:black;
+  padding-left: 1vw;
+  padding-right: 1vw;
+}

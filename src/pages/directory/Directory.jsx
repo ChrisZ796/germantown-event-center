@@ -1,8 +1,9 @@
 
-import Sidebar from "./sidebar/Sidebar";
-import Favorites from "./Favorites";
-import Footer from "./Footer";
-import ViewProfile from "./ViewProfile";
+import Sidebar from "../../page-components/sidebar/Sidebar";
+import Favorites from "../../page-components/favorites/Favorites";
+import Footer from "../../page-components/Footer";
+import ViewProfile from "../../page-components/viewProfile/ViewProfile";
+import styles from "./directory.module.css";
 import { useState, useRef, useEffect } from "react";
 
 
@@ -52,7 +53,7 @@ export default function Directory({ onSelect, selectedSection, onSearch }) {
   return (
     <div className='container'>
       <Sidebar onSelect={onSelect} selectedSection={selectedSection} />
-      <div className='directory'>
+      <div className={styles.directory}>
         <h2 style = {{ marginLeft:'47%' }}>Directory</h2>
         <div className='searchBarContainer'>
           <input
@@ -75,8 +76,8 @@ export default function Directory({ onSelect, selectedSection, onSearch }) {
             </div>
         </div>
       </div>
-      <div className='favorites'><Favorites /></div>
-      <div className='footer'><Footer /></div>
+      <Favorites />
+      <Footer />
     </div>
   );
 }

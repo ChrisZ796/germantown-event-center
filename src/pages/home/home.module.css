@@ -1,0 +1,24 @@
+.container{
+    display: grid;
+    height:100vh;
+    width:100vw;
+    box-sizing: border-box;
+    grid-template-columns: 2fr 3fr 3fr 2fr;
+    grid-template-areas:
+        "sidebar feed feed favorites";
+    gap: 1vw;
+    padding: 1vh;
+}
+
+.sidebar {
+    grid-area: sidebar;
+}
+.feed {
+    grid-area: feed;
+}
+.favorites {
+    grid-area: favorites;
+}
+.footer {
+    grid-area:footer;
+}

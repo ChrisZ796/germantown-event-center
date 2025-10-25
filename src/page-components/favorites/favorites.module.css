@@ -1,0 +1,7 @@
+.container {
+  grid-area: favorites;
+  background-color: #031045;
+  color:white;
+  padding-left:1vw;
+  padding-right:1vw;
+}

@@ -1,7 +1,6 @@
-import Sidebar from "./sidebar/Sidebar";
-import Favorites from "./Favorites";
-import Footer from "./Footer";
-import { useState } from "react";
+import Sidebar from "../../page-components/sidebar/Sidebar";
+import Favorites from "../../page-components/favorites/Favorites";
+import Footer from "../../page-components/Footer";
 
 export default function Profile({onSelect, selectedSection}) {
 

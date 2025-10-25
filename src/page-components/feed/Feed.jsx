@@ -1,5 +1,6 @@
 import { useState, useEffect, useRef } from "react";
-import Post from "./Post";
+import Post from "../post/Post";
+import styles from "./feed.module.css";
 
 export default function Feed() {
     const [posts, setPosts] = useState([
@@ -43,8 +44,8 @@ export default function Feed() {
     }, []);
 
     return (
-        <div>
-            <div ref={contentRef} style={{height: '85vh', overflowY: 'auto'}}>
+        <div className={styles.container}>
+            <div ref={contentRef} className={styles.feed}>
                 {posts.map(post => (
                     <Post post={post} key={post.id} />
                 ))}
