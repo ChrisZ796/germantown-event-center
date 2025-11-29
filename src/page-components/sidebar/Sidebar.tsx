@@ -10,7 +10,7 @@ const icons = [
   "/icons/account.png"
 ];
 
-export default function Sidebar({ onSelect = () => {}, selectedSection}) {
+export default function Sidebar() {
     return (
         <div className={styles.sidebar}>
             <div className = "logo">
@@ -19,7 +19,7 @@ export default function Sidebar({ onSelect = () => {}, selectedSection}) {
             </div>
             <ul className="space-y-4" style = {{cursor:'pointer'}}>
                 {items.map((item, i) => (
-                    <li key={i} onClick={() => onSelect(item)} style = {{fontWeight:  selectedSection === item ? 'bold' : 'normal'}}>
+                    <li key={i}>
                         <img src = {icons[i]} style = {{width: 40, height: 40, marginRight: 8, verticalAlign: "middle", position:'relative', left:'-5%'}} />
                         {item}
                     </li>))}

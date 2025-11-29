@@ -1,11 +1,13 @@
-import { useContext } from 'react';
+import { use, useContext } from 'react';
 import styles from './login.module.css';
-import { instance } from "../../services/api";
-import { AuthenticationContext } from "../../contexts/Authentication";
+import { instance } from "../services/api.js";
+import { AuthenticationContext } from "../contexts/Authentication.js";
+import { useNavigate} from "@tanstack/react-router";
 
 export default function Login() {
+    const navigate = useNavigate();
     const { username, setUsername, password, setPassword } = useContext(AuthenticationContext);
-    async function handleLogin(e) {
+    async function handleLogin(e: React.FormEvent<HTMLFormElement>) {
         e.preventDefault();
         
         try { 
@@ -15,6 +17,7 @@ export default function Login() {
             });
             if ( response.status === 200) {
                 console.log("Login successful:", response.data);
+                navigate({ to: '/home'});
             }
         }
         catch (error) {
@@ -23,7 +26,7 @@ export default function Login() {
     }
     return (
         <div className={styles.container}>
-            <h1 className={"baumans-regular"}>Germantown Event Center</h1>
+            <h1 className={styles.baumansRegular}>Germantown Event Center</h1>
             <form onSubmit={handleLogin}>
                 <label className={styles.label}>
                     <input

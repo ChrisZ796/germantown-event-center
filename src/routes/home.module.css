@@ -1,3 +1,18 @@
+
+.container{
+    display: grid;
+    width: 100vw;
+    height: 100vh;
+    box-sizing: border-box;
+    grid-template-areas:
+        "sidebar feed feed favorites"
+        "footer footer footer footer";
+    grid-template-rows: 1fr auto;
+    grid-template-columns: 240px 1fr 1fr 240px;
+    gap: calc(var(--gap) * 1.0);
+    padding: calc(var(--gap) * 0.75);
+}
+
 :root {
   font-family: 'Josefin Sans', Arial, Helvetica, sans-serif;
   line-height: 1.5;
@@ -23,13 +38,11 @@
   --card-shadow: 0 6px 18px rgba(2,6,23,0.08);
   --max-width: 1200px;
 }
-* {
-  box-sizing: border-box;
-  margin: 0;
-  padding: 0;
-}
 
-html, body, #root {
-  height: 100%;
+.baumansRegular {
+  font-family: "Baumans", system-ui;
+  font-weight: 400;
+  font-style: normal;
+  color:white;
 }
 
