@@ -2,7 +2,7 @@ import { use, useContext } from 'react';
 import styles from './login.module.css';
 import { instance } from "../services/api.js";
 import { AuthenticationContext } from "../contexts/Authentication.js";
-import { useNavigate} from "@tanstack/react-router";
+import { useNavigate } from "@tanstack/react-router";
 
 export default function Login() {
     const navigate = useNavigate();

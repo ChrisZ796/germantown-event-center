@@ -1,4 +1,6 @@
-import styles from "./sidebar.module.css"
+import styles from "./sidebar.module.css";
+import { useNavigate, Link } from "@tanstack/react-router";
+
 
 const items = ["Home", "Explore", "Directory", "Post", "Updates", "Profile"];
 const icons = [
@@ -11,6 +13,7 @@ const icons = [
 ];
 
 export default function Sidebar() {
+    const navigate = useNavigate();
     return (
         <div className={styles.sidebar}>
             <div className = "logo">
@@ -21,7 +24,7 @@ export default function Sidebar() {
                 {items.map((item, i) => (
                     <li key={i}>
                         <img src = {icons[i]} style = {{width: 40, height: 40, marginRight: 8, verticalAlign: "middle", position:'relative', left:'-5%'}} />
-                        {item}
+                        <Link to={`/${item.toLowerCase()}`}>{item}</Link>
                     </li>))}
             </ul>
         </div>
