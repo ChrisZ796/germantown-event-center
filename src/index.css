@@ -15,9 +15,9 @@
 
 :root{
   --bg: #ffffff;
-  --primary: #031045;
+  --primary: #07246D;
   --accent: #F5F7FF;
-  --muted: #6b7280;
+  --muted: #DBE7FF;
   --gap: 1rem;
   --radius: 8px;
   --card-shadow: 0 6px 18px rgba(2,6,23,0.08);

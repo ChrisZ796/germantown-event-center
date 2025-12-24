@@ -17,8 +17,39 @@
 .menuItem{
   display:flex;
   align-items:center;
-  gap:.75rem;
+  gap:5vh;
   padding:.5rem .25rem;
   cursor:pointer;
   border-radius:6px;
+}
+
+.icon{
+  width:60px; 
+  height: 60px; 
+  margin-bottom: 9vh;
+  vertical-align: middle; 
+  margin-right:1.5vw;
+  position:relative; bottom:-3vh;
+  filter:invert(100%);
+}
+
+.item{
+  color:white;
+  text-decoration: none;
+  font-size: x-large;
+  font-weight: normal;
+}
+.item:hover{
+  color: #4B60C0;
+}
+
+li {
+  list-style-type: none;
+}
+
+.active {
+  color:white;
+  text-decoration:underline;
+  font-size: x-large;
+  font-weight: bold;
 }

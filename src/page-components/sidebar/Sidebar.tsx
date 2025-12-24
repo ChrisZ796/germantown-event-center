@@ -14,17 +14,19 @@ const icons = [
 
 export default function Sidebar() {
     const navigate = useNavigate();
+    const currentPath = location.pathname;
+    currentPath.toLowerCase();
     return (
         <div className={styles.sidebar}>
-            <div className = "logo">
+            {/* <div className = "logo">
                 <img src="GEC.png" width="50" height="50" style={{padding: 8}}></img>
                 <span style={{fontSize: 20, fontWeight: "bold", verticalAlign: "left", paddingBottom: 20}}>Germantown Event Center</span>
-            </div>
+            </div> */}
             <ul className="space-y-4" style = {{cursor:'pointer'}}>
                 {items.map((item, i) => (
                     <li key={i}>
-                        <img src = {icons[i]} style = {{width: 40, height: 40, marginRight: 8, verticalAlign: "middle", position:'relative', left:'-5%'}} />
-                        <Link to={`/${item.toLowerCase()}`}>{item}</Link>
+                        <img src = {icons[i]} className = {styles.icon} />
+                        <Link to={`/${item.toLowerCase()}`} className={currentPath === `/${item.toLowerCase()}` ? styles.active : styles.item}>{item}</Link>
                     </li>))}
             </ul>
         </div>
