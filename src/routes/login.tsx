@@ -15,7 +15,11 @@ export default function Login() {
                 username, 
                 password 
             });
-            if ( response.status === 200) {
+            if (response.status === 401) {
+                console.error("Login failed: Unauthorized");
+                return;
+            }
+            else if ( response.status === 200) {
                 console.log("Login successful:", response.data);
                 navigate({ to: '/home'});
             }
