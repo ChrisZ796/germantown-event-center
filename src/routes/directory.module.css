@@ -1,48 +1,72 @@
 /* Simpler Directory layout */
+.container{
+    display: grid;
+    width: 100vw;
+    height: 100vh;
+    box-sizing: border-box;
+    grid-template-areas:
+        "sidebar feed feed favorites";
+    grid-template-columns: 2fr 3fr 3fr 2fr;
+    gap: calc(var(--gap) * 1.0);
+    padding: calc(var(--gap) * 0.75);
+}
+
 .directory {
   grid-area: feed;
   display: flex;
   flex-direction: column;
   gap: .5rem;
   padding: .75rem;
-  background: var(--accent);
+  background: var(--muted);
   min-height: 0; /* allow inner scrolling */
+  overflow-y: auto;
+}
+
+.header {
+  display: flex;
+  align-items: center;
+  gap:1.5rem;
+  justify-content: center;
+}
+
+.main {
+  display:flex;
+  flex-direction: column;
+  gap: 3rem;
+  padding-inline: 5rem;
+  padding-block: 3rem;
 }
 
 .searchBar {
+  position: relative;
   display: flex;
   align-items: center;
-  justify-content: center;
   gap: .5rem;
-  width: 100%;
+  width: 90%;
 }
 .searchInput {
-  width: 70%;
-  max-width: 720px;
-  padding: .5rem .75rem;
-  border-radius: 8px;
+  width: 100%;
+  max-height: 56px;
+  padding: 1.5rem;
+  border-radius: 100px;
   border: 1px solid rgba(0,0,0,0.08);
   background: #fff;
   box-shadow: none;
   outline: none;
+  font-size: 1.5rem;
 }
 
-.listWrap{
-  flex: 1 1 auto;
-  min-height: 0;
-  overflow-y: auto;
-  padding-right: .5rem;
+.searchButton {
+  all: unset;
+  position: absolute;
   display:flex;
-  justify-content:flex-start;
+  align-items: center;
+  justify-content: center;
+  right: 1.5rem;
+  cursor: pointer;
 }
 
-.cardColumn{
-  width: 100%;
-  max-width: 900px;
-  margin: 0 auto;
-  display:flex;
-  flex-direction:column;
-  gap: .5rem;
+.filterButton {
+  all: unset;
+  
 }
-
-.titleCenter{ text-align:left; margin:0 0 .25rem 0; font-weight:600; }
