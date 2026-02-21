@@ -12,4 +12,13 @@ export default defineConfig({
     }),
     react(),
     patchCssModules(),],
+  // Proxy all requests to local backend for development
+  server: {
+    proxy: {
+      '**': {
+      target: 'http://localhost:8080',
+      changeOrigin: true,
+      }
+    }
+  }
 })

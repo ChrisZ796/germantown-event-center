@@ -1,18 +1,26 @@
 .post {
-  padding: 1rem;
+  display:block;
+  padding: 2rem;
   background: var(--bg);
-  border-radius: var(--radius);
   box-shadow: var(--card-shadow);
   margin-bottom: .75rem;
+  position:relative;
 }
 .post h2{
-  margin: 0 0 .5rem 0;
-  font-size: 1.1rem;
+  font-size: 2rem;
 }
 .post img{
-  cursor: pointer;
   image-rendering: crisp-edges;
-  float: right;
-  width: 30px;
-  height: 30px;
+  width: 120px;
+  height: 120px;
+}
+.header {
+  display:flex;
+  gap:24px;
+}
+.link {
+  position:absolute;
+  top:2rem;
+  right:2rem;
+  text-decoration: none;
 }
