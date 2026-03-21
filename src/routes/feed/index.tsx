@@ -1,5 +1,5 @@
 import { createFileRoute } from "@tanstack/react-router"
-import Post from "../../page-components/post/post.tsx";
+import Post from "../../page-components/post/post.js";
 import styles from "./feed.module.css";
 import { useState, useEffect } from "react";
 import { instance } from "../../services/api.ts";
