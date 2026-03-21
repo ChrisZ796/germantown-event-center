@@ -41,12 +41,3 @@ h1{
   font-style: normal;
   color:white;
 }
-
-.signupContainer {
-    display: flex;
-    align-items: center;
-    font-family: "Baumans", system-ui;
-    color: white;
-    gap:8px;
-    justify-content: center;
-}
