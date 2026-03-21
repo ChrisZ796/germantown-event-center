@@ -1,4 +1,4 @@
-import { use, useContext } from 'react';
+import { useContext } from 'react';
 import styles from './login.module.css';
 import { instance } from "../services/api.js";
 import { AuthenticationContext, AuthenticationProvider } from "../contexts/Authentication.js";
