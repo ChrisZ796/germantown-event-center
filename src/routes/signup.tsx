@@ -3,6 +3,7 @@ import styles from './login.module.css';
 import { AuthenticationContext } from '../contexts/Authentication.js';
 import { useContext } from 'react';
 import { instance } from '../services/api.js';
+import { ToastContainer, toast } from 'react-toastify';
 
 
 export const Route = createFileRoute('/signup')({
@@ -23,17 +24,19 @@ export default function SignUp() {
                 firstname,
                 lastname
             });
-            if (response.status === 401) {
-                console.error("Signup failed: Unauthorized");
+            if (response.status === 400) {
+                toast.error("Signup failed: Please check your input and try again.");
                 return;
             }
-            else if ( response.status === 200) {
-                console.log("Signup successful");
-                navigate({ to: '/login'});
+            else if ( response.status === 201) {
+                toast.success("Signup successful! Redirecting to login...");
+                setTimeout(() => {
+                    navigate({ to: '/' });
+                }, 5000)
             }
         }
         catch (error) {
-            console.error("Signup failed:", error);
+            toast.error("Signup failed: An unexpected error occurred.");
         }
     }
     return (
@@ -97,6 +100,7 @@ export default function SignUp() {
                 <br />
                 <input type="submit" value="Create Account" className={styles.submitButton} />
             </form>
+            <ToastContainer />
         </div>
     );
 }
