@@ -4,7 +4,7 @@ import { RouterProvider, createRouter } from '@tanstack/react-router'
 
 // Minimal inline routeTree fallback to avoid missing generated module during development.
 // Replace with the real generated import once routeTree.gen is available:
-import { routeTree } from './routeTree.gen'
+import { routeTree } from './routeTree.gen.ts'
 
 // Create a new router instance
 const router = createRouter({ routeTree })
