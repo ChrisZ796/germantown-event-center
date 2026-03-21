@@ -1,13 +1,8 @@
 import { StrictMode } from 'react'
 import ReactDOM from 'react-dom/client'
 import { RouterProvider, createRouter } from '@tanstack/react-router'
-
-// Minimal inline routeTree fallback to avoid missing generated module during development.
-// Replace with the real generated import once routeTree.gen is available:
-import { routeTree } from './routeTree.gen'
-
-// Create a new router instance
-const router = createRouter({ routeTree })
+import { router } from './routes/routes.tsx'
+import { AuthenticationProvider } from "./contexts/Authentication.js";
 
 // Register the router instance for type safety
 declare module '@tanstack/react-router' {
@@ -22,7 +17,7 @@ if (!rootElement.innerHTML) {
   const root = ReactDOM.createRoot(rootElement)
   root.render(
     <StrictMode>
-        <RouterProvider router={router} />
+        <AuthenticationProvider><RouterProvider router={router} /></AuthenticationProvider>
     </StrictMode>,
   )
 }

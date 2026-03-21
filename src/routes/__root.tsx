@@ -2,7 +2,7 @@ import { Outlet, createRootRoute } from '@tanstack/react-router'
 import { TanStackRouterDevtools } from '@tanstack/react-router-devtools'
 
 
-function RootComponent() {
+export default function RootComponent() {
   return (
     <>
         <Outlet />

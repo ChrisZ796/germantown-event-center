@@ -10,19 +10,33 @@
 
 import { Route as rootRouteImport } from './routes/__root'
 import { Route as UpdatesRouteImport } from './routes/updates'
+import { Route as SignupRouteImport } from './routes/signup'
 import { Route as ProfileRouteImport } from './routes/profile'
+import { Route as LoginRouteImport } from './routes/login'
 import { Route as HomeRouteImport } from './routes/home'
 import { Route as DirectoryRouteImport } from './routes/directory'
 import { Route as IndexRouteImport } from './routes/index'
+import { Route as FeedIndexRouteImport } from './routes/feed/index'
+import { Route as FeedPostIdRouteImport } from './routes/feed/postId'
 
 const UpdatesRoute = UpdatesRouteImport.update({
   id: '/updates',
   path: '/updates',
   getParentRoute: () => rootRouteImport,
 } as any)
+const SignupRoute = SignupRouteImport.update({
+  id: '/signup',
+  path: '/signup',
+  getParentRoute: () => rootRouteImport,
+} as any)
 const ProfileRoute = ProfileRouteImport.update({
   id: '/profile',
   path: '/profile',
+  getParentRoute: () => rootRouteImport,
+} as any)
+const LoginRoute = LoginRouteImport.update({
+  id: '/login',
+  path: '/login',
   getParentRoute: () => rootRouteImport,
 } as any)
 const HomeRoute = HomeRouteImport.update({
@@ -40,43 +54,97 @@ const IndexRoute = IndexRouteImport.update({
   path: '/',
   getParentRoute: () => rootRouteImport,
 } as any)
+const FeedIndexRoute = FeedIndexRouteImport.update({
+  id: '/feed/',
+  path: '/feed/',
+  getParentRoute: () => rootRouteImport,
+} as any)
+const FeedPostIdRoute = FeedPostIdRouteImport.update({
+  id: '/feed/postId',
+  path: '/feed/postId',
+  getParentRoute: () => rootRouteImport,
+} as any)
 
 export interface FileRoutesByFullPath {
   '/': typeof IndexRoute
   '/directory': typeof DirectoryRoute
   '/home': typeof HomeRoute
+  '/login': typeof LoginRoute
   '/profile': typeof ProfileRoute
+  '/signup': typeof SignupRoute
   '/updates': typeof UpdatesRoute
+  '/feed/postId': typeof FeedPostIdRoute
+  '/feed': typeof FeedIndexRoute
 }
 export interface FileRoutesByTo {
   '/': typeof IndexRoute
   '/directory': typeof DirectoryRoute
   '/home': typeof HomeRoute
+  '/login': typeof LoginRoute
   '/profile': typeof ProfileRoute
+  '/signup': typeof SignupRoute
   '/updates': typeof UpdatesRoute
+  '/feed/postId': typeof FeedPostIdRoute
+  '/feed': typeof FeedIndexRoute
 }
 export interface FileRoutesById {
   __root__: typeof rootRouteImport
   '/': typeof IndexRoute
   '/directory': typeof DirectoryRoute
   '/home': typeof HomeRoute
+  '/login': typeof LoginRoute
   '/profile': typeof ProfileRoute
+  '/signup': typeof SignupRoute
   '/updates': typeof UpdatesRoute
+  '/feed/postId': typeof FeedPostIdRoute
+  '/feed/': typeof FeedIndexRoute
 }
 export interface FileRouteTypes {
   fileRoutesByFullPath: FileRoutesByFullPath
-  fullPaths: '/' | '/directory' | '/home' | '/profile' | '/updates'
+  fullPaths:
+    | '/'
+    | '/directory'
+    | '/home'
+    | '/login'
+    | '/profile'
+    | '/signup'
+    | '/updates'
+    | '/feed/postId'
+    | '/feed'
   fileRoutesByTo: FileRoutesByTo
-  to: '/' | '/directory' | '/home' | '/profile' | '/updates'
-  id: '__root__' | '/' | '/directory' | '/home' | '/profile' | '/updates'
+  to:
+    | '/'
+    | '/directory'
+    | '/home'
+    | '/login'
+    | '/profile'
+    | '/signup'
+    | '/updates'
+    | '/feed/postId'
+    | '/feed'
+  id:
+    | '__root__'
+    | '/'
+    | '/directory'
+    | '/home'
+    | '/login'
+    | '/profile'
+    | '/signup'
+    | '/updates'
+    | '/feed/postId'
+    | '/feed/'
   fileRoutesById: FileRoutesById
 }
 export interface RootRouteChildren {
   IndexRoute: typeof IndexRoute
   DirectoryRoute: typeof DirectoryRoute
   HomeRoute: typeof HomeRoute
+  LoginRoute: typeof LoginRoute
   ProfileRoute: typeof ProfileRoute
+  SignupRoute: typeof SignupRoute
   UpdatesRoute: typeof UpdatesRoute
+  FeedPostIdRoute: typeof FeedPostIdRoute
+  FeedIndexRoute: typeof FeedIndexRoute
 }
 
 declare module '@tanstack/react-router' {
@@ -88,11 +156,25 @@ declare module '@tanstack/react-router' {
       preLoaderRoute: typeof UpdatesRouteImport
       parentRoute: typeof rootRouteImport
     }
+    '/signup': {
+      id: '/signup'
+      path: '/signup'
+      fullPath: '/signup'
+      preLoaderRoute: typeof SignupRouteImport
+      parentRoute: typeof rootRouteImport
+    }
     '/profile': {
       id: '/profile'
       path: '/profile'
       fullPath: '/profile'
       preLoaderRoute: typeof ProfileRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/login': {
+      id: '/login'
+      path: '/login'
+      fullPath: '/login'
+      preLoaderRoute: typeof LoginRouteImport
       parentRoute: typeof rootRouteImport
     }
     '/home': {
@@ -116,6 +198,20 @@ declare module '@tanstack/react-router' {
       preLoaderRoute: typeof IndexRouteImport
       parentRoute: typeof rootRouteImport
     }
+    '/feed/': {
+      id: '/feed/'
+      path: '/feed'
+      fullPath: '/feed'
+      preLoaderRoute: typeof FeedIndexRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/feed/postId': {
+      id: '/feed/postId'
+      path: '/feed/postId'
+      fullPath: '/feed/postId'
+      preLoaderRoute: typeof FeedPostIdRouteImport
+      parentRoute: typeof rootRouteImport
+    }
   }
 }
 
@@ -123,8 +219,12 @@ const rootRouteChildren: RootRouteChildren = {
   IndexRoute: IndexRoute,
   DirectoryRoute: DirectoryRoute,
   HomeRoute: HomeRoute,
+  LoginRoute: LoginRoute,
   ProfileRoute: ProfileRoute,
+  SignupRoute: SignupRoute,
   UpdatesRoute: UpdatesRoute,
+  FeedPostIdRoute: FeedPostIdRoute,
+  FeedIndexRoute: FeedIndexRoute,
 }
 export const routeTree = rootRouteImport
   ._addFileChildren(rootRouteChildren)

@@ -1,7 +1,8 @@
-import Post from "../post/Post.js";
+import { createFileRoute } from "@tanstack/react-router"
+import Post from "../../page-components/post/post.tsx";
 import styles from "./feed.module.css";
 import { useState, useEffect } from "react";
-import { instance } from "../../services/api.js";
+import { instance } from "../../services/api.ts";
 
 type FeedProps = {
     postID:number;
@@ -9,6 +10,10 @@ type FeedProps = {
     description:string;
     thumbnailPath:string
 }
+
+export const Route = createFileRoute('/feed/')({
+  component: Feed,
+})
 
 export default function Feed() {
     const [posts, setPosts] = useState<FeedProps[]>([]);
