@@ -1,7 +1,5 @@
-
-/* Simpler, flatter profile card */
 .profileCard{
-  background: #f3f6ff; /* very light card */
+  background: #f3f6ff;
   color: var(--text);
   border-radius: 6px;
   padding: .6rem .75rem;

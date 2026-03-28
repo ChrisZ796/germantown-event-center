@@ -33,7 +33,6 @@ export default function Login() {
         }
     }
     return (
-        <AuthenticationProvider>
             <div className={styles.container}>
                 <h1 className={styles.baumansRegular}>Germantown Event Center</h1>
                 <form onSubmit={handleLogin}>
@@ -66,6 +65,5 @@ export default function Login() {
                     <input type="submit" value="Login" className={styles.submitButton} />
                 </form>
             </div>
-        </AuthenticationProvider>
     );
 }

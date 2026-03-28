@@ -10,7 +10,7 @@
     "module": "nodenext",
     "moduleResolution": "nodenext",
     "target": "esnext",
-    "types": [],
+    "types": ["vitest", "@testing-library/jest-dom"],
     // For nodejs:
     // "lib": ["esnext"],
     // "types": ["node"],

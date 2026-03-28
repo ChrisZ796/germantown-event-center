@@ -4,9 +4,9 @@ import styles from "./card.module.css";
 
 interface CardProps {
     image?: string;
-    name: string;
+    name?: string;
     orgName?: string;
-    username: string;
+    username?: string;
     isOrg: boolean;
 }
 
@@ -17,12 +17,12 @@ export function Card({ image, name, orgName, username, isOrg }: CardProps) {
             <div className={styles.userInfo}>
                 {isOrg ? <FaSuitcase size={64} /> : <FaUser size={64} />}
                 <div className={styles.userBox}>
-                    <strong className={styles.name}>{name || orgName}</strong>
+                    <strong data-testid="card-name" className={styles.name}>{name || orgName}</strong>
                     <p className={styles.username}>{username}</p>
                 </div>
             </div>
             <div>
-                <Link to={``}><FaArrowUpRightFromSquare size={32}/></Link>
+                {/* <Link to={``}><FaArrowUpRightFromSquare size={32}/></Link> */}
             </div>
         </article>
     )
