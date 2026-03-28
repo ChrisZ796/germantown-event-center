@@ -22,7 +22,7 @@ export function Card({ image, name, orgName, username, isOrg }: CardProps) {
                 </div>
             </div>
             <div>
-                {/* <Link to={``}><FaArrowUpRightFromSquare size={32}/></Link> */}
+                <Link to={``}><FaArrowUpRightFromSquare size={32}/></Link>
             </div>
         </article>
     )
