@@ -1,0 +1,17 @@
+.eventCard {
+    background-color: var(--accent);
+    border-radius: 0.5rem;
+    padding: 1rem;
+    display: flex;
+    justify-content: space-between;
+    margin-bottom: 1.5rem;
+}
+
+.eventTitle {
+    font-size: 1.5rem;
+    color: var(--bg);
+}
+
+.eventDate {
+    color: var(--bg);
+}

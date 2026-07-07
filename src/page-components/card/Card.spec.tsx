@@ -15,6 +15,7 @@ afterEach(() => {
 test.skip('Card component renders user information correctly', () => {
     render(
             <Card
+                directoryID={1024}
                 name="John Doe"
                 username="johndoe"
                 isOrg={false}
@@ -26,6 +27,7 @@ test.skip('Card component renders user information correctly', () => {
 test.skip('Card component renders organization information correctly', () => {
     render(
         <Card
+            directoryID={1024}
             orgName="Bread"
             isOrg={true}
         />

@@ -1,6 +1,7 @@
 import { FaCircleUser, FaRegStar, FaArrowLeft, FaSuitcase } from "react-icons/fa6";
 import styles from "./header.module.css";
 import { useState } from "react";
+import { useRouter } from "@tanstack/react-router";
 
 type HeaderProps = {
     name: string;
@@ -10,6 +11,7 @@ type HeaderProps = {
 
 export function Header({ name, username, isOrg }: HeaderProps) {
     const [isOrgState, setIsOrgState] = useState(isOrg);
+    const router = useRouter();
 
     return (
         <div className={styles.headerContainer}>
@@ -21,7 +23,7 @@ export function Header({ name, username, isOrg }: HeaderProps) {
                 </div>
                 <div className={styles.buttons}>
                     {isOrgState && <FaSuitcase size={32} className={styles.orgIcon} />}
-                    <FaArrowLeft size={32} className={styles.backButton} onClick={() => {}} />
+                    <FaArrowLeft size={32} className={styles.backButton} onClick={() => router.history.back()} />
                 </div>
             </header>
             {isOrgState && (

@@ -21,6 +21,7 @@
 }
 
 .buttons{
+    cursor: pointer;
     grid-area: actions;
     display: flex;
     margin-left: auto;

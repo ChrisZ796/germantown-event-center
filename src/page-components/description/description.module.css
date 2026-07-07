@@ -1,0 +1,13 @@
+.description, .eventsHosted {
+    margin-inline: 4rem;
+}
+
+.orgDetails {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+}
+
+.orgDetails > p {
+    margin-block: 0.5rem;
+}
