@@ -1,0 +1,65 @@
+.headerContainer{
+    display:flex;
+    align-items:center;
+    justify-content: center;
+    width: 100%;
+    gap: 1rem;
+}
+
+.header{
+    display: grid;
+    width: 80%;
+    min-height: 112px;
+    box-sizing: border-box;
+    grid-template-areas:
+        "icon name actions";
+    grid-template-columns: 2fr 4fr 6fr;
+    background: var(--accent);
+    color: white;
+    padding: 1rem;
+    border-radius: 1rem;
+}
+
+.buttons{
+    grid-area: actions;
+    display: flex;
+    margin-left: auto;
+    gap: 1rem;
+}
+
+.favoritesButton{
+    all: unset;
+    display:flex;
+    align-items: center;
+    background-color: var(--accent);
+    padding: .5rem;
+    border-radius: 1rem;
+}
+
+.favoritesButton:hover{
+    cursor: pointer;
+}
+
+.favoritesIcon{
+    fill: white;
+}
+
+.favoritesIcon:hover{
+    fill: #F6D349;
+}
+
+.profileInfo{
+    grid-area: name;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+}
+
+.orgIcon{
+    margin-top: 40%;
+    fill: white;
+}
+
+.username{
+    margin: 0px;
+}

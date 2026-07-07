@@ -16,7 +16,7 @@
 :root{
   --bg: #ffffff;
   --primary: #07246D;
-  --accent: #F5F7FF;
+  --accent: #4B60C0;
   --muted: #DBE7FF;
   --gap: 1rem;
   --radius: 8px;
@@ -31,5 +31,7 @@
 
 html, body, #root {
   height: 100%;
+  margin: 0;
+  padding: 0;
 }
 

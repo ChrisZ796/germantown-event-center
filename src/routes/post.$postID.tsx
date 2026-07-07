@@ -1,5 +1,5 @@
-import Sidebar from "../page-components/sidebar/Sidebar.tsx";
-import Favorites from "../page-components/favorites/Favorites.tsx";
+import Sidebar from "@page-components/sidebar/Sidebar.tsx";
+import Favorites from "@page-components/favorites/Favorites.tsx";
 import {createFileRoute} from "@tanstack/react-router"
 import {instance } from "../services/api.js";
 import { useEffect, useState } from "react";

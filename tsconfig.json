@@ -48,6 +48,15 @@
       {
         "name": "typescript-plugin-css-modules"
       }
-    ]
+    ],
+
+    "ignoreDeprecations": "6.0",
+
+    "baseUrl": "./src",
+
+    "paths": {
+      "@page-components/*": ["./page-components/*"],
+      "@services/*": ["./services/*"]
+    }
   }
 }

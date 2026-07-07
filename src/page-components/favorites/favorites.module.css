@@ -17,9 +17,6 @@
 }
 
 .icon {
-  filter:invert(100%);
-  width:60px;
-  height:60px;
   position:relative;
   top: -20%;
   left: -10%

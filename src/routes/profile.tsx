@@ -1,6 +1,9 @@
-import Sidebar from "../page-components/sidebar/Sidebar.js";
-import Favorites from "../page-components/favorites/Favorites.js";
+import Sidebar from "@page-components/sidebar/Sidebar.js";
+import Favorites from "@page-components/favorites/Favorites.js";
 import {createFileRoute} from "@tanstack/react-router"
+import styles from "./profile.module.css";
+import { Container } from "@page-components/container/Container.tsx";
+import { Header } from "@page-components/header/Header.tsx";
 
 export const Route = createFileRoute('/profile')({
   component: Profile
@@ -9,10 +12,14 @@ export const Route = createFileRoute('/profile')({
 function Profile() {
 
   return (
-    <div className='container'>
+    <div className={styles.container}>
       <Sidebar/>
-      <div className = 'directory'>Profile</div>
-      <div className = 'favorites'><Favorites /></div>
+      <Container className={styles.profileContainer}>
+        <section className={styles.content}>
+          <Header />
+        </section>
+      </Container>
+      <Favorites />
     </div>
   );
 }

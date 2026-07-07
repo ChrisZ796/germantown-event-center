@@ -1,0 +1,31 @@
+.container{
+    display: grid;
+    width: 100%;
+    min-height: 100vh;
+    box-sizing: border-box;
+    grid-template-areas:
+        "sidebar profile favorites";
+    grid-template-columns: 2fr 6fr 2fr;
+}
+
+.baumansRegular {
+  font-family: "Baumans", system-ui;
+  font-weight: 400;
+  font-style: normal;
+  color:white;
+}
+
+.profileContainer{
+    grid-area: profile;
+    display: flex;
+    flex-direction: column;
+    gap: .5rem;
+    padding: .75rem;
+    background: var(--muted);
+    min-height: 0;
+    overflow-y: auto;
+}
+   
+.content{
+    width: 100%;
+}

@@ -14,9 +14,10 @@ import { Route as SignupRouteImport } from './routes/signup'
 import { Route as ProfileRouteImport } from './routes/profile'
 import { Route as LoginRouteImport } from './routes/login'
 import { Route as HomeRouteImport } from './routes/home'
-import { Route as DirectoryRouteImport } from './routes/directory'
 import { Route as IndexRouteImport } from './routes/index'
+import { Route as DirectoryIndexRouteImport } from './routes/directory/index'
 import { Route as PostPostIDRouteImport } from './routes/post.$postID'
+import { Route as DirectoryDirectoryIDRouteImport } from './routes/directory/$directoryID'
 
 const UpdatesRoute = UpdatesRouteImport.update({
   id: '/updates',
@@ -43,14 +44,14 @@ const HomeRoute = HomeRouteImport.update({
   path: '/home',
   getParentRoute: () => rootRouteImport,
 } as any)
-const DirectoryRoute = DirectoryRouteImport.update({
-  id: '/directory',
-  path: '/directory',
-  getParentRoute: () => rootRouteImport,
-} as any)
 const IndexRoute = IndexRouteImport.update({
   id: '/',
   path: '/',
+  getParentRoute: () => rootRouteImport,
+} as any)
+const DirectoryIndexRoute = DirectoryIndexRouteImport.update({
+  id: '/directory/',
+  path: '/directory/',
   getParentRoute: () => rootRouteImport,
 } as any)
 const PostPostIDRoute = PostPostIDRouteImport.update({
@@ -58,80 +59,92 @@ const PostPostIDRoute = PostPostIDRouteImport.update({
   path: '/post/$postID',
   getParentRoute: () => rootRouteImport,
 } as any)
+const DirectoryDirectoryIDRoute = DirectoryDirectoryIDRouteImport.update({
+  id: '/directory/$directoryID',
+  path: '/directory/$directoryID',
+  getParentRoute: () => rootRouteImport,
+} as any)
 
 export interface FileRoutesByFullPath {
   '/': typeof IndexRoute
-  '/directory': typeof DirectoryRoute
   '/home': typeof HomeRoute
   '/login': typeof LoginRoute
   '/profile': typeof ProfileRoute
   '/signup': typeof SignupRoute
   '/updates': typeof UpdatesRoute
+  '/directory/$directoryID': typeof DirectoryDirectoryIDRoute
   '/post/$postID': typeof PostPostIDRoute
+  '/directory': typeof DirectoryIndexRoute
 }
 export interface FileRoutesByTo {
   '/': typeof IndexRoute
-  '/directory': typeof DirectoryRoute
   '/home': typeof HomeRoute
   '/login': typeof LoginRoute
   '/profile': typeof ProfileRoute
   '/signup': typeof SignupRoute
   '/updates': typeof UpdatesRoute
+  '/directory/$directoryID': typeof DirectoryDirectoryIDRoute
   '/post/$postID': typeof PostPostIDRoute
+  '/directory': typeof DirectoryIndexRoute
 }
 export interface FileRoutesById {
   __root__: typeof rootRouteImport
   '/': typeof IndexRoute
-  '/directory': typeof DirectoryRoute
   '/home': typeof HomeRoute
   '/login': typeof LoginRoute
   '/profile': typeof ProfileRoute
   '/signup': typeof SignupRoute
   '/updates': typeof UpdatesRoute
+  '/directory/$directoryID': typeof DirectoryDirectoryIDRoute
   '/post/$postID': typeof PostPostIDRoute
+  '/directory/': typeof DirectoryIndexRoute
 }
 export interface FileRouteTypes {
   fileRoutesByFullPath: FileRoutesByFullPath
   fullPaths:
     | '/'
-    | '/directory'
     | '/home'
     | '/login'
     | '/profile'
     | '/signup'
     | '/updates'
+    | '/directory/$directoryID'
     | '/post/$postID'
+    | '/directory'
   fileRoutesByTo: FileRoutesByTo
   to:
     | '/'
-    | '/directory'
     | '/home'
     | '/login'
     | '/profile'
     | '/signup'
     | '/updates'
+    | '/directory/$directoryID'
     | '/post/$postID'
+    | '/directory'
   id:
     | '__root__'
     | '/'
-    | '/directory'
     | '/home'
     | '/login'
     | '/profile'
     | '/signup'
     | '/updates'
+    | '/directory/$directoryID'
     | '/post/$postID'
+    | '/directory/'
   fileRoutesById: FileRoutesById
 }
 export interface RootRouteChildren {
   IndexRoute: typeof IndexRoute
-  DirectoryRoute: typeof DirectoryRoute
   HomeRoute: typeof HomeRoute
   LoginRoute: typeof LoginRoute
   ProfileRoute: typeof ProfileRoute
   SignupRoute: typeof SignupRoute
   UpdatesRoute: typeof UpdatesRoute
+  DirectoryDirectoryIDRoute: typeof DirectoryDirectoryIDRoute
   PostPostIDRoute: typeof PostPostIDRoute
+  DirectoryIndexRoute: typeof DirectoryIndexRoute
 }
 
 declare module '@tanstack/react-router' {
@@ -171,18 +184,18 @@ declare module '@tanstack/react-router' {
       preLoaderRoute: typeof HomeRouteImport
       parentRoute: typeof rootRouteImport
     }
-    '/directory': {
-      id: '/directory'
-      path: '/directory'
-      fullPath: '/directory'
-      preLoaderRoute: typeof DirectoryRouteImport
-      parentRoute: typeof rootRouteImport
-    }
     '/': {
       id: '/'
       path: '/'
       fullPath: '/'
       preLoaderRoute: typeof IndexRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/directory/': {
+      id: '/directory/'
+      path: '/directory'
+      fullPath: '/directory'
+      preLoaderRoute: typeof DirectoryIndexRouteImport
       parentRoute: typeof rootRouteImport
     }
     '/post/$postID': {
@@ -192,18 +205,26 @@ declare module '@tanstack/react-router' {
       preLoaderRoute: typeof PostPostIDRouteImport
       parentRoute: typeof rootRouteImport
     }
+    '/directory/$directoryID': {
+      id: '/directory/$directoryID'
+      path: '/directory/$directoryID'
+      fullPath: '/directory/$directoryID'
+      preLoaderRoute: typeof DirectoryDirectoryIDRouteImport
+      parentRoute: typeof rootRouteImport
+    }
   }
 }
 
 const rootRouteChildren: RootRouteChildren = {
   IndexRoute: IndexRoute,
-  DirectoryRoute: DirectoryRoute,
   HomeRoute: HomeRoute,
   LoginRoute: LoginRoute,
   ProfileRoute: ProfileRoute,
   SignupRoute: SignupRoute,
   UpdatesRoute: UpdatesRoute,
+  DirectoryDirectoryIDRoute: DirectoryDirectoryIDRoute,
   PostPostIDRoute: PostPostIDRoute,
+  DirectoryIndexRoute: DirectoryIndexRoute,
 }
 export const routeTree = rootRouteImport
   ._addFileChildren(rootRouteChildren)

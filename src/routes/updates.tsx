@@ -1,5 +1,5 @@
-import Sidebar from "../page-components/sidebar/Sidebar.js";
-import Favorites from "../page-components/favorites/Favorites.js";
+import Sidebar from "@page-components/sidebar/Sidebar.js";
+import Favorites from "@page-components/favorites/Favorites.js";
 import {createFileRoute} from "@tanstack/react-router"
 
 export const Route = createFileRoute('/updates')({
