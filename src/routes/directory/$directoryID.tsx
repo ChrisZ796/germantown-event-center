@@ -34,10 +34,11 @@ interface DirectoryOrganizationData {
   orgID: number;
   orgName: string;
   email: string;
+  website: string;
   address: string;
   phoneNumber: string;
   linkedin: string;
-  bio: string;
+  description: string;
   eventsHosted: Event[];
 }
 
@@ -46,6 +47,7 @@ function Directory() {
   const { directoryID } = useParams({ from: '/directory/$directoryID' });
   const [directoryInfo, setDirectoryInfo] = useState<DirectoryUserData | DirectoryOrganizationData>({
   userID: 1024,
+  orgID: 2048,
   username: "jdoe_92",
   firstname: "John",
   lastname: "Doe",
@@ -92,7 +94,14 @@ function Directory() {
             isOrg={isOrg} 
           />
         </section>
-        <Description />
+        <Description 
+          orgID={directoryID}
+          bio={'description' in directoryInfo ? directoryInfo.description : ''} 
+          website={'website' in directoryInfo ? directoryInfo.website : 'No Website Available'} 
+          email={'email' in directoryInfo ? directoryInfo.email : 'Error Retrieving Email'} 
+          office={'address' in directoryInfo ? directoryInfo.address : 'No Office Address Available'} 
+          isOrg={isOrg}
+        />
       </Container>
       <Favorites />
     </div>
