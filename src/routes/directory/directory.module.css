@@ -30,9 +30,15 @@
   grid-area: directory;
     display: flex;
     flex-direction: column;
-    gap: .5rem;
+    gap: 0rem;
     padding: .75rem;
     background: var(--muted);
     min-height: 0;
     overflow-y: auto;
+}
+
+.content{
+  position:relative;
+  top: 2rem;
+  right: 1.5rem;
 }
