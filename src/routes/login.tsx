@@ -24,7 +24,7 @@ export default function Login() {
                 return;
             }
             else if ( response.status === 200) {
-                console.log("Login successful:");
+                console.log("Login successful:", response.data.userID);
                 localStorage.setItem('userID', response.data.userID);
                 navigate({ to: '/home'});
             }
