@@ -2,6 +2,8 @@ import { FaCircleUser, FaRegStar, FaArrowLeft, FaSuitcase } from "react-icons/fa
 import styles from "./header.module.css";
 import { useState } from "react";
 import { useRouter } from "@tanstack/react-router";
+import { instance } from "../../services/api.ts";
+
 
 type HeaderProps = {
     name: string;
@@ -12,6 +14,16 @@ type HeaderProps = {
 export function Header({ name, username, isOrg }: HeaderProps) {
     const [isOrgState, setIsOrgState] = useState(isOrg);
     const router = useRouter();
+
+    async function handleFavoriteOrg() {
+        try {
+            const localUser = localStorage.getItem('userID');
+            const response = await instance.post(`/users/favoriteOrgs`, { userID: localUser });
+        }
+        catch (error) {
+            console.error("Failed to favorite organization:", error);
+        }
+    }
 
     return (
         <div className={styles.headerContainer}>
@@ -27,7 +39,7 @@ export function Header({ name, username, isOrg }: HeaderProps) {
                 </div>
             </header>
             {isOrgState && (
-                <button className={styles.favoritesButton} onClick={() => {}}>
+                <button className={styles.favoritesButton} onClick={handleFavoriteOrg}>
                     <FaRegStar className={styles.favoritesIcon} size={48} role='img'/>
                 </button>
             )}

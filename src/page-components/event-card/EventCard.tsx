@@ -11,7 +11,7 @@ export function EventCard({ postID, title, eventDate }: { postID: number; title:
                 <p className={styles.eventDate}>{eventDate}</p>
             </div>
             <div>
-                <Link className={styles.link} to={""} ><FaArrowUpRightFromSquare size={32}/></Link>
+                <Link className={styles.link} to={`/post/${postID}`} ><FaArrowUpRightFromSquare size={32}/></Link>
             </div>
         </article>
     )
