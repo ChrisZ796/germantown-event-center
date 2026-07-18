@@ -1,41 +1,131 @@
-.container{
-  display: grid;
-  width: 100%;
-  min-height: 100vh;
+.container {
+    display: grid;
+    width: 100%;
+    min-height: 100vh;
     box-sizing: border-box;
     grid-template-areas:
-        "sidebar feed feed favorites";
-    grid-template-columns: 2fr 3fr 3fr 2fr;
-}
-.title{
-    text-align: 'center'; 
-    padding:20;
-    padding-top:50;
-    color:'white';
-    font-size:50
-}
-.logo{
-    padding-top:50; 
-    margin-left:'45%'
-}
-h1{
-    font-size: 400%;
-}
-.baumansRegular {
-  font-family: "Baumans", system-ui;
-  font-weight: 400;
-  font-style: normal;
-  color:white;
+        "sidebar post favorites";
+    grid-template-columns: 2fr 6fr 2fr;
 }
 
-.post {
-    grid-area: feed;
+.baumansRegular {
+    font-family: "Baumans", system-ui;
+    font-weight: 400;
+    font-style: normal;
+    color:white;
+}
+
+.postContainer{
+    grid-area: post;
     display: flex;
     flex-direction: column;
-    gap: .5rem;
+    gap: 0rem;
     padding: .75rem;
     background: var(--muted);
     min-height: 0;
-    overflow-y: auto;
-    border:1rem solid white;
+    overflow-y:hidden;
+}
+
+.content {
+    padding:2rem;
+    position:relative;
+    top: 0rem;
+    border-width: 1rem;
+    border-style: solid;
+    border-color: var(--bg);
+    background-color: var(--muted);
+    height:100%;
+    width:45rem;
+    align-self: center;
+}
+
+
+
+.eventContainer{
+    display:flex;
+    width: 100%;
+    gap: 0rem;
+    justify-content: center;
+}
+
+.eventHeader{
+    display: grid;
+    width: 32rem;
+    height: 5rem;
+    box-sizing: border-box;
+    grid-template-areas:
+        "icon name actions";
+    grid-template-columns: 2fr 4fr 6fr;
+    background: var(--accent);
+    color: white;
+    padding: 1rem;
+    border-radius: 1rem;
+    position: relative;
+    right:6.5rem;
+    bottom:5rem;
+}
+
+.description{
+    position:relative;
+    bottom:4rem;
+}
+
+
+a:visited{
+    all: unset;
+}
+
+.backButton{
+    cursor: pointer;
+    grid-area: actions;
+    display: flex;
+    margin-left: auto;
+    gap: 1rem;
+}
+
+.eventInfo{
+    grid-area: name;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+}
+
+.icon{
+    grid-area: icon;
+}
+
+.regContainer{
+    display: grid;
+    width: 32rem;
+    height: 5rem;
+    box-sizing: border-box;
+    grid-template-areas:
+        "status slots actions";
+    grid-template-columns: 1fr 3fr 2fr;
+    background: var(--accent);
+    color: white;
+    padding: 1rem;
+    border-radius: 1rem;
+    position: fixed;
+    bottom: 1rem;
+    justify-self: center;
+}
+
+.regBar{
+    grid-area: status;
+}
+
+.regStatus{
+    grid-area: slots;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+}
+
+.regButtonContainer{
+    cursor: pointer;
+    grid-area: actions;
+    display: flex;
+    margin-left: auto;
+    gap: 1rem;
 }

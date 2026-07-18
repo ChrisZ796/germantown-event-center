@@ -8,7 +8,7 @@
   grid-template-columns: 2fr 6fr 2fr;
 }
 
-.directory {
+/* .directory {
   grid-area: directory;
   display: flex;
   flex-direction: column;
@@ -17,7 +17,7 @@
   background: var(--muted);
   min-height: 0;
   overflow-y: auto;
-}
+} */
 
 .baumansRegular {
   font-family: "Baumans", system-ui;
@@ -35,10 +35,4 @@
     background: var(--muted);
     min-height: 0;
     overflow-y: auto;
-}
-
-.content{
-  position:relative;
-  top: 2rem;
-  right: 1.5rem;
 }

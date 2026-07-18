@@ -87,14 +87,12 @@ function Directory() {
     <div className={styles.container}>
       <Sidebar/>
       <Container className={styles.profileContainer}>
-        <section className={styles.content}>
-          <Header 
-            name={'firstname' in directoryInfo ? directoryInfo.firstname : directoryInfo.orgName} 
-            username={'username' in directoryInfo ? directoryInfo.username : undefined} 
-            isOrg={isOrg} 
-          />
-        </section>
-        <Description 
+        <Header 
+          name={'firstname' in directoryInfo ? directoryInfo.firstname : directoryInfo.orgName} 
+          username={'username' in directoryInfo ? directoryInfo.username : undefined} 
+          isOrg={isOrg} 
+        />
+        <Description
           orgID={directoryID}
           bio={'description' in directoryInfo ? directoryInfo.description : ''} 
           website={'website' in directoryInfo ? directoryInfo.website : 'No Website Available'} 
